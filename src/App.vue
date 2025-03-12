@@ -49,8 +49,144 @@
           </el-radio-group>
         </el-form-item>
       </el-col>
-      <el-col :span="8">
-        <!-- 其他表单项 -->
+    </el-row>
+    <el-row :gutter="20">
+      <el-col :span="6">
+        <el-form-item label="料号类别" prop="materialCategory">
+          <el-select v-model="form.materialCategory" placeholder="请选择">
+            <el-option label="选项1" value="option1"></el-option>
+            <el-option label="选项2" value="option2"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="购买频率" prop="purchaseFrequency">
+          <el-select v-model="form.purchaseFrequency" placeholder="请选择">
+            <el-option label="选项1" value="option1"></el-option>
+            <el-option label="选项2" value="option2"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="是否有类似购买记录" prop="similarPurchaseRecord">
+          <el-select v-model="form.similarPurchaseRecord" placeholder="请选择">
+            <el-option label="是" value="yes"></el-option>
+            <el-option label="否" value="no"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="类似购买记录详细说明" prop="similarPurchaseDetails">
+          <el-input v-model="form.similarPurchaseDetails" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="20">
+      <el-col :span="6">
+        <el-form-item label="品牌" prop="brand">
+          <el-input v-model="form.brand" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="型号" prop="model">
+          <el-input v-model="form.model" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="规格尺寸" prop="specifications">
+          <el-input v-model="form.specifications" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="参数" prop="parameters">
+          <el-input v-model="form.parameters" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="20">
+      <el-col :span="6">
+        <el-form-item label="功能" prop="functionality">
+          <el-input v-model="form.functionality" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="性能" prop="performance">
+          <el-input v-model="form.performance" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="是否有电机" prop="hasMotor">
+          <el-select v-model="form.hasMotor" placeholder="请选择">
+            <el-option label="是" value="yes"></el-option>
+            <el-option label="否" value="no"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="能效等级" prop="energyEfficiency">
+          <el-select v-model="form.energyEfficiency" placeholder="请选择">
+            <el-option label="A+" value="A+"></el-option>
+            <el-option label="A" value="A"></el-option>
+            <el-option label="B" value="B"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="20">
+      <el-col :span="6">
+        <el-form-item label="电机说明" prop="motorDescription">
+          <el-input v-model="form.motorDescription" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="使用部门" prop="department">
+          <el-select v-model="form.department" placeholder="请选择">
+            <el-option label="部门1" value="dept1"></el-option>
+            <el-option label="部门2" value="dept2"></el-option>
+            <el-option label="部门3" value="dept3"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="其他部门" prop="otherDepartments">
+          <el-input v-model="form.otherDepartments" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item label="附件" prop="attachment">
+          <el-upload
+            class="upload-demo"
+            action=""
+            :auto-upload="false"
+            list-type="picture-card"
+            :on-preview="handlePictureCardPreview"
+            :on-remove="handleRemove"
+            :before-upload="beforeUpload"
+            :limit="1"
+            :on-exceed="handleExceed"
+            :file-list="fileList">
+            <i class="el-icon-plus"></i>
+          </el-upload>
+        </el-form-item>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="20">
+      <el-col :span="24">
+        <el-form-item label="备注" prop="remarks">
+          <el-input type="textarea" v-model="form.remarks" placeholder="请输入"></el-input>
+        </el-form-item>
+      </el-col>
+    </el-row>
+
+    <el-row>
+      <el-col :span="24">
+        <el-form-item>
+          <el-button type="primary" @click="submitForm">提交</el-button>
+        </el-form-item>
       </el-col>
     </el-row>
 
